@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime JS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            background-color: #364f6b;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .input-num{
+            background-color: #364f6b;
+            border: 1px solid #a7ff83;
+            outline: none;
+            color: #a7ff83;
+            width: 60%;
+            padding: 5px;
+            font-size: 30px;
+            text-align: center;
+            font-family: 'Baloo 2', cursive;
+            transition:  color 0.5s;
+        }
+        .btn-back{
+            margin: 20px;
+            background-color: #364f6b;
+            border: 1px solid #a7ff83;
+            outline: none;
+            color: #a7ff83;
+            width: fit-content;
+            padding: 5px 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .btn-back:hover{
+            background-color:#a7ff83;
+            color: #364f6b;
+        }
+        a{
+            text-decoration: none;
+            color: #a7ff83;
+        }
+        .btn-back:hover a{
+            color: #364f6b;
+        }
+            
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input class="input-num" type="text" disabled>
+        <button class="btn-back"><a href="index.html">Back</a></button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+        ];
+        var date = new Date();
+        var day = date.getDate();
+        var month = monthNames[date.getMonth()];
+        var year = date.getFullYear();
+        var full_date = day+' '+month+' '+year
+        anime({
+        targets: 'input',
+        value: [0, full_date],
+        round: 1,
+        easing: 'easeInOutExpo'
+        });
+    </script>
+</body>
+</html>
