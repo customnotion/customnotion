@@ -44,6 +44,20 @@
         a:hover{
             color: #17b978;
         }
+        #digit{
+            color: #278ea5;
+        }
+        #sat{
+            color: #226089;
+        }
+        #day{
+            color: #fe5f55;
+        }
+        #today{
+            color: white;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
     </style>
     <title>Image Viewer</title>
   </head>
@@ -53,6 +67,7 @@
             <a class="navbar-brand" href="" style="font-weight: bold; color: white;">
                 Discipline
             </a>
+            <p id="today"></p>
         </div>
     </nav>
     <br>
@@ -70,7 +85,9 @@
         <br>
         <div class="alert alert-dark text-center" role="alert">Joined <b>Measured Inc</b> on <b>13 Mar 2021</b></div>
         <div id="measured"></div>
+    
         <br>
+
 <!--         
         <div class="row">
             <div class="col text-center">
@@ -102,22 +119,37 @@
             </div>
         </div> -->
     </div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
-        var date_1 = new Date();
-        var date_2 = new Date(2021,11,18,10,20,20,0);
-        var day = date_1.getDate();
-        var month = date_1.getMonth();
-        var year = date_1.getFullYear();
-        
-
-        var rem_days = Math.floor((date_2 - date_1)/(1000*60*60*24)) ;
-
-        var line = " Remaining Days to complete 1 Year : <b>"+rem_days+"</b> days <br> Working days : N/A";
+        // var below = document.getElementById("measured").innerHTML = "";
+        var bar = document.getElementById('timing');
+        var countDownDate = new Date("Nov 18, 2021 23:59:59 ").getTime();
+        var myfunc = setInterval(function() {
+        var now = new Date().getTime();
+        var timeleft = countDownDate - now;
+        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        var timing =  '<b> '+hours+'</b> h:<b> '+minutes+'</b> m:<b> '+seconds+'</b> s' ;
+        var line = "Working Hours : 09:30 to 06:30 (8 Hrs, 1 Hr Lunch Break)<br>Working days per week : <b id='digit'>5</b><br>Holidays : Weekends (<b id='sat'>Saturday</b> and <b id='day'>Sunday</b>)<br> Remaining Days to complete 1 Year : <b>"+days+"</b> days <br> Time Remaining :"+timing;
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+        var date = new Date();
+        var day = date.getDate();
+        var month = monthNames[date.getMonth()];
+        var year = date.getFullYear();
+        var full_date = day+' '+month+' '+year;
         document.getElementById("pws").innerHTML = line;
+        document.getElementById("today").innerHTML = full_date;
+        if (timeleft < 0) {
+            clearInterval(myfunc);s
+            document.getElementById("secs").innerHTML = ""
+            }
+        }, 1000)
 
-        // document.getElementById("measured").innerHTML = "N/A";
-    
     </script>
     
 
