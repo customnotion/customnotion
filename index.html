@@ -1,17 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="icon" href="" type="image/icon type">
+    <title>Custom Notion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: 'Michroma', sans-serif;
+        }
+        .flex-nav{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-control:focus, .btn:focus{
+            box-shadow: none;
+        }
+        #amtVal{
+            height: ;
+        }
 
-    <title>Hello, world!</title>
+    </style>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <nav class="navbar navbar-dark flex-nav" style="background-color: #364f6b;">
+        <a href="" class="navbar-brand">Custom Notion</a>        
+    </nav>
+    <div class="container">
+        <br>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </symbol>
+        </svg>
+
+
+        <div class="alert alert-primary" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+  
+            Check your invite mail for <b class="bold">Secret key</b>.
+          </div>
+
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default" style="background-color: #324e7b; color: white; border: none;">Enter</span>
+            <input type="text" class="form-control" placeholder="Secret Key" aria-label="Recipient's username" aria-describedby="button-addon2" style="border: none;">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #3e4a61; border: none; color: white;">Submit</button>
+        </div>
+
+        <hr>
+
+        <p><b>Percentage Off - Calculator</b></p>
+        <p>Example :</p>
+        <p style="color: red;">Offer : 30 Percent off upto &#8377;200</p>
+        <p> &#8377;200 is 30 Percent of the Amount  &#8377;<u style="color:slateblue;">666.6667</u>? </p>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Percentage</span>
+            <input type="text" id="per" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Amount Upto</span>
+            <input type="text" id="upto" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+        <div class="input-group mb-3">
+                <button class="btn btn-primary" type="button" onclick="percentUpto()">Button</button>
+            </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Pay Amount &#8377; </span><span class="input-group-text" id="amtVal"></span> 
+        </div>
+    </div>
+    <script>
+        function percentUpto(){
+            var percent = document.getElementById('per').value;
+            var upto = document.getElementById('upto').value;
+            var calcAmt = upto*(100/percent);
+            var amtVal = document.getElementById('amtVal');
+            amtVal.innerHTML = calcAmt;             
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-  </body>
+
+
+</body>
 </html>
