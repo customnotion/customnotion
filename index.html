@@ -38,13 +38,13 @@
     <div class="container">
         <br>
         <div class="alert alert-primary" role="alert">  
-            Login with your date of birth [DDMMYYYY].
+            Login with your date of birth [DDMMYYY].
           </div>
 
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default" style="background-color: #324e7b; color: white; border: none;">Enter</span>
-            <input type="text" class="form-control" id="dob" placeholder="DDMMYYYY" aria-label="Recipient's username" aria-describedby="button-addon2" style="border: none;">
+            <input type="date" class="form-control" id="dob" placeholder="DDMMYYY" aria-label="Recipient's username" aria-describedby="button-addon2" style="border: none;">
           
             <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #3e4a61; border: none; color: white;" onclick="submitdob();">Submit</button></a>
         </div>
@@ -60,15 +60,15 @@
                     if (dob ==''){
                         document.getElementById("name").innerHTML = "Please enter the date of birth";
                     }
-                    else if(dob =='05091997'){
+                    else if(dob =='1997-09-05'){
                         document.getElementById("name").innerHTML = "Hi Vinutha N, Welcome";
                         document.getElementById("pic").innerHTML = "<img src='img.jpg' class='img-thumbnail' width='150px'>";
                         
                     }
-                    else if(dob =='08092001'){
+                    else if(dob =='2001-09-08'){
                         document.getElementById("name").innerHTML = "Hi Vikram, Welcome";
                     }
-                    else if(dob =='12031997'){
+                    else if(dob =='1997-03-12'){
                         document.getElementById("name").innerHTML = "Hi Varun, Welcome";
                     }
                     else
