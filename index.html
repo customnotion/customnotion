@@ -52,6 +52,8 @@
         <hr>
         <p id="name"></p>
         <p id="pic"></p>
+        <p id="song"></p>
+        
         <hr>
         <script>
                 function submitdob(){
@@ -63,7 +65,7 @@
                     else if(dob =='1997-09-05'){
                         document.getElementById("name").innerHTML = "Hi Vinutha N, Welcome";
                         document.getElementById("pic").innerHTML = "<img src='img.jpg' class='img-thumbnail' width='150px'>";
-                        
+                        document.getElementById("song").innerHTML = "<audio autoplay controls><source src='song.mp3' type='audio/mp3'></audio>";
                     }
                     else if(dob =='2001-09-08'){
                         document.getElementById("name").innerHTML = "Hi Vikram, Welcome";
